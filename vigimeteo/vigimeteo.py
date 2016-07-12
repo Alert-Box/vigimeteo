@@ -56,8 +56,10 @@ gettext.bindtextdomain('vigie-meteo', 'locale')
 gettext.textdomain('vigie-meteo')
 _ = gettext.gettext
 
+__all__ = ['VigiMeteo']
 
-class VigieMeteo(object):
+
+class VigiMeteo(object):
     u"""This class.
 
     tote.
@@ -234,8 +236,8 @@ def run():
                        '******************************************',
                        '',
                        'example for the Guadeloupe:',
-                       'vigilance.py 971',
-                       'vigilance.py gp'])
+                       'vigimeteo 971',
+                       'vigimeteo gp'])
 
     country_aliases = {
         'iles-du-nord': ['iles-du-nord', 'idn', 'nord'],
@@ -254,7 +256,7 @@ def run():
             print usage
             sys.exit(1)
 
-        ia = VigieMeteo(config_file='vigie-meteo.cfg')
+        ia = VigiMeteo(config_file='vigimeteo.cfg')
         vigilance = ia.get_vigilance(area)
         for item in vigilance['suivi']:
             print item
