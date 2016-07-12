@@ -78,7 +78,6 @@ class VigiMeteo(object):
         try:
             cfg = open(self.config_file, 'r')
         except IOError:
-            print ('prout')
             exit(1)
 
         self.config = ConfigParser.ConfigParser()
