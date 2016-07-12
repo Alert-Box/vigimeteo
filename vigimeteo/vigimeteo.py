@@ -71,7 +71,6 @@ class VigiMeteo(object):
     """
     def __init__(self, config_file=os.path.join(BASE_DIR, 'vigimeteo.cfg')):
 
-
         # cfg ini file
         self.config_file = config_file
         print os.path.join(BASE_DIR, 'vigimeteo.cfg')
