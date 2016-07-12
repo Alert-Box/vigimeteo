@@ -1,0 +1,3 @@
+include *.md
+include vigimeteo/vigimeteo.cfg
+recursive-include vigimeteo

@@ -43,6 +43,7 @@ import ConfigParser
 import urllib2
 
 from bs4 import BeautifulSoup
+import os
 from pdfminer.pdfinterp import PDFResourceManager, process_pdf
 # from pdfminer.pdfdevice import PDFDevice
 from pdfminer.converter import TextConverter
@@ -58,20 +59,26 @@ _ = gettext.gettext
 
 __all__ = ['VigiMeteo']
 
+BASE_DIR = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    'vigimeteo')
+
 
 class VigiMeteo(object):
     u"""This class.
 
     tote.
     """
-    def __init__(self, config_file=''):
+    def __init__(self, config_file=os.path.join(BASE_DIR, 'vigimeteo.cfg')):
 
 
         # cfg ini file
         self.config_file = config_file
+        print os.path.join(BASE_DIR, 'vigimeteo.cfg')
         try:
             cfg = open(self.config_file, 'r')
         except IOError:
+            print ('prout')
             exit(1)
 
         self.config = ConfigParser.ConfigParser()
@@ -256,7 +263,7 @@ def run():
             print usage
             sys.exit(1)
 
-        ia = VigiMeteo(config_file='vigimeteo.cfg')
+        ia = VigiMeteo()
         vigilance = ia.get_vigilance(area)
         for item in vigilance['suivi']:
             print item

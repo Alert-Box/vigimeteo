@@ -33,7 +33,7 @@ area and the weather forecast provided by METEO-FRANCE use a different format
 
     git clone https://github.com/Alert-Box/vigimeteo
     cd vigimeteo
-    python setup.py
+    python setup.py install
 
 # Usage
 
