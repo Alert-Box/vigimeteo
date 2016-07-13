@@ -10,35 +10,33 @@ third party program.
 
 ## Vigilance Météo
 
-In France, the weather awareness level is called *Vigilance Météo*, and
-surprisingly there is no API nor RSS flux to retrieve in real-time this
-information for French West Indies.
-
-This information is vital for local people. Two specific levels :
+In France this level is called "Vigilance Météo", and suprisingly there is no
+API nor RSS flux to retrieve in realtime this information for French West
+Indies. This information is vital for local people. Two specific levels :
 *violet* (purple) and *gris* (gray) purple, have been created for these islands
 because of the risk of hurricanes.
 
-Actually, the tool *vigimeteo* works only for Guadeloupe, Martinique and
-Saint Martin / Saint Barths. The French Guyane is divided in 4 "vigilance météo"
-area and the weather forecast provided by METEO-FRANCE use a different format
- from the others.
+Actually, this tools works only for Guadeloupe, Martinique and Saint Martin /
+Saint Barths. The French Guyane is divided in 4 "vigilance météo" area and the
+weather forecast provided by METEO-FRANCE use a different format from the
+others.
 
 # install
 
 ## using pip
 
-    pip install vigie_meteo
+    pip install vigimeteo
 
 ## from source
 
     git clone https://github.com/Alert-Box/vigimeteo
     cd vigimeteo
-    python setup.py install
+    python setup.py
 
-# Usage
+# Usage example
 
-## Chose An Area
-vigimeteo <area_alias>
+## Command Line
+    $ vigimeteo <area_alias>
 
 ### Vigilance Meteo areas
 - Guadeloupe :
@@ -48,23 +46,20 @@ vigimeteo <area_alias>
 - Iles du Nord (St Barths / St Martin)
     - aliases : iles-du-nord, idn, nord  
 
-## Example
-
     $ vigimeteo --help
     $ vigimeteo 971
 
+## Python Module
 
-
-Exemple d'usage:
-
-    >>> from sm_lib import proclamer
-    >>> proclamer()
+    >>> from vigimeteo import VigiMeteo
+    >>> ia = VigiMeteo()
+    >>> ia.get_vigilance('guadeloupe')
 
 # Licence
 
-VigiMeteo is a Free Software and is distributed under the GPLv3 license.
+VigiMeteo is a Free Software and is licensed under the GNU General Public License (GPL) Version 3 or later.
 
-## GNU Global Public Licence
+## 	GNU General Public License (GPL) Version 3 or later
 
 [![GNU GPL v3.0](http://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl.html)
 
