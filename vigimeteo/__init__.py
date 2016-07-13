@@ -19,12 +19,11 @@ weather forecast provided by  METEO-FRANCE use a different format from the
 others.
 """
 
-__version__ = "0.0.1"
+__author__ = "Olivier Watte"
+__copyright__ = "Copyright (c) 2016 Olivier Watte"
+__license__ = "GPL-V3+"
+__all__ = ['VigiMeteo', 'run', ]
 
-try:
-    from vigimeteo import VigiMeteo
-except ImportError:
-    pass
 
 def get_version(version, alpha_num=None, beta_num=None,
                 rc_num=None, post_num=None, dev_num=None):
