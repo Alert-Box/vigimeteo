@@ -3,13 +3,10 @@
 
 from setuptools import setup, find_packages
 
-import vigimeteo
-
 setup(
     name='vigimeteo',
-    version=vigimeteo.__version__,
+    version=__import__("vigimeteo").__version__,
     packages=find_packages(),
-
     author="Olivier Watte",
     author_email="owatte@emnet.cc",
 
@@ -33,7 +30,12 @@ setup(
         "Programming Language :: Python :: 2.7",
         "Topic :: Utilities",
     ],
-
+    install_requires=[
+        "beautifulsoup4==4.4.1",
+        "bs4==0.0.1",
+        "pdfminer==20110515",
+        "six==1.10.0",
+    ],
     entry_points={
         'console_scripts': [
             'vigimeteo = vigimeteo.vigimeteo:run',

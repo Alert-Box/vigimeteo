@@ -37,15 +37,13 @@ Saint Barths. The French Guyane is divided in 4 "vigilance météo" area and the
 weather forecast provided by  METEO-FRANCE use a different format from the
 others."""
 
+
 import ConfigParser
-# import logging
-# import time
 import urllib2
 
 from bs4 import BeautifulSoup
 import os
 from pdfminer.pdfinterp import PDFResourceManager, process_pdf
-# from pdfminer.pdfdevice import PDFDevice
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 import StringIO
@@ -57,7 +55,7 @@ gettext.bindtextdomain('vigie-meteo', 'locale')
 gettext.textdomain('vigie-meteo')
 _ = gettext.gettext
 
-__all__ = ['VigiMeteo']
+__all__ = ['VigiMeteo', 'run']
 
 BASE_DIR = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
@@ -65,15 +63,11 @@ BASE_DIR = os.path.join(
 
 
 class VigiMeteo(object):
-    u"""This class.
-
-    tote.
-    """
+    u"""This class grabs French West Indies weather info from METEO-FRANCE."""
     def __init__(self, config_file=os.path.join(BASE_DIR, 'vigimeteo.cfg')):
 
         # cfg ini file
         self.config_file = config_file
-        print os.path.join(BASE_DIR, 'vigimeteo.cfg')
         try:
             cfg = open(self.config_file, 'r')
         except IOError:
